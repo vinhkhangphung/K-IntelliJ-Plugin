@@ -115,3 +115,10 @@ manually via UI.
 [jb:ipe]: https://jb.gg/ipe
 
 [jb:ui-guidelines]: https://jetbrains.github.io/ui
+
+## Demo
+![Action Search](src/main/resources/readme/ActionSearch.png)
+
+![Dialog](src/main/resources/readme/Dialog.png)
+
+![Tools Menu](src/main/resources/readme/ToolsMenu.png)
