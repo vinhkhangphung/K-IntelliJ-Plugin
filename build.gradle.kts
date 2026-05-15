@@ -1,0 +1,34 @@
+import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+
+plugins {
+    id("org.jetbrains.kotlin.jvm")
+    id("org.jetbrains.changelog")
+    id("org.jetbrains.intellij.platform")
+}
+
+// Read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html
+dependencies {
+    testImplementation(libs.junit)
+
+    // IntelliJ Platform Gradle Plugin Dependencies Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html
+    intellijPlatform {
+        intellijIdeaUltimate("2025.3.5")
+        testFramework(TestFrameworkType.Platform)
+
+        // Add plugin dependencies for compilation here:
+        bundledPlugin("com.intellij.java")
+        bundledPlugin("com.intellij.database")
+    }
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+tasks {
+    // Set the JVM compatibility versions
+    withType<JavaCompile> {
+        sourceCompatibility = "17"
+        targetCompatibility = "17"
+    }
+}
